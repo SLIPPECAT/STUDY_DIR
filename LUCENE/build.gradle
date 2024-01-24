@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.10'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.club.lucene'
+version = '0.1'
+
+java {
+    sourceCompatibility = '11'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    // korean to english
+    implementation 'net.sf.jwordnet:jwnl:1.4_rc3'
+    //    ==================== [ Korean English Keystroke Transform ] ====================
+    implementation 'com.github.arinyaho:inko4j:1.1.1'
+    //    ==================== [ Korean into Roman characters ] ====================
+    implementation 'net.crizin:korean-romanizer:2.0.1'
+    //  ==================== [ lucene phonetic search ] ====================
+    runtimeOnly 'org.apache.lucene:lucene-analysis-phonetic:9.8.0'
+    implementation 'org.apache.lucene:lucene-analyzers-phonetic:8.11.2'
+    //    ==================== [ lucene core ] ====================
+    implementation 'org.apache.lucene:lucene-core:9.8.0'
+    //    ==================== [ lucene modules ] ====================
+    implementation 'org.apache.lucene:lucene-queryparser:9.8.0'
+    implementation 'org.apache.lucene:lucene-queries:9.8.0'
+    implementation 'org.apache.lucene:lucene-memory:9.8.0'
+    implementation 'org.apache.lucene:lucene-analysis-common:9.8.0'
+    implementation 'org.apache.lucene:lucene-highlighter:9.8.0'
+    implementation 'org.apache.lucene:lucene-facet:9.8.0'
+    implementation 'org.apache.lucene:lucene-suggest:9.8.0'
+    implementation 'org.apache.lucene:lucene-grouping:9.8.0'
+//    runtimeOnly 'org.apache.lucene:lucene-analysis-nori:9.8.0'
+    implementation files('src/main/resources/lib/lucene-analysis-nori-9.7.0.jar')
+    implementation 'com.github.jitpack:gradle-simple:v1.1'
+    implementation group: 'com.opencsv', name: 'opencsv', version: '5.8'
+//    ==================== [ korean analyzer ] ====================
+    implementation files('src/main/resources/lib/kkma-2.1.jar')
+    implementation files('src/main/resources/lib/jhannanum.jar')
+    implementation files('src/main/resources/lib/arirang-morph-1.1.0.jar')
+    implementation 'com.github.shin285:KOMORAN:3.3.4'
+//    implementation 'org.bitbucket.eunjeon:seunjeon_2.12:1.5.0'
+    //    ==================== [ library for hangul edit distance ] ====================
+    implementation 'com.github.inkyfox:korean-post-position-util:1.0.3'
+//    implementation 'com.github.cocodrino:hangul-utils:1.2.2' // 라이브러리 버전에 따라 변경할 수 있음
+    implementation 'io.github.huacnlee:autocorrect-java:2.8.5'
+    //    ==================== [ library for test ] ====================
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
