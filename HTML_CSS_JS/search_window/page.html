@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/css/page.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>약품 검색하기</h1>
+    </header>
+    <section>
+      <div>
+        <input id="user-input" type="text">
+        <button id="search-btn">
+          <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16">
+            <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+            />
+          </svg>
+        </button>
+      </div>
+      <div id="dropdown-box">
+        <ul id="dropdown-list">
+          <template id="dropdown-item-template">
+            <li class="dropdown-item"></li>
+          </template>
+        </ul>
+      </div>
+    </section>
+  </main>
+<script src="../static/js/page.js"></script>
+</body>
+</html>
